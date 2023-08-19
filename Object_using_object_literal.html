@@ -1,0 +1,29 @@
+<!Doctype html>
+<html>
+<head>
+<title>Creating an object using Object literal</title>
+</head>
+<body>
+<script type="text/javascript">
+let obj={
+l:30,
+b:30,
+h:30,
+
+display:function(){
+  console.log(obj.l);
+  console.log(obj.b);
+  console.log(obj.h);
+ },
+
+ volume:function(){
+   return obj.l*obj.b*obj.h;
+  },
+  };
+  console.log(typeof obj);
+  obj.display();
+  
+  console.log(`Volume of Box:${obj.volume()}`);
+  </script>
+  </body>
+  </html>
