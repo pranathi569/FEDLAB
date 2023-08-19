@@ -1,106 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Calculator</title>
-<style>
-  body {
-    background-color: grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  #calculator {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  }
-  #display {
-    width: 100%;
-    height: 40px;
-    font-size: 20px;
-    margin-bottom: 10px;
-    text-align: right;
-  }
-  .row {
-    display: flex;
-    justify-content: space-between;
-  }
-  .button {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-</style>
+     
+      <title>exp4</title>
+      <style type="text/css">
+            .c{
+                  width: 97px;
+                  height: 65px;
+                  background-color: white;
+                  font-size: 20px;
+            }
+            .t{
+                  margin-top: 3px;
+                  font-size: 30px;
+                  height: 65px;
+                  width: 400px;
+            }
+            table{
+                  width: 400px;
+                  height: 400px;
+            }
+            
+      </style>
+      <script type="text/javascript">
+            function insert(num)  
+           {  
+              document.f.ans.value = document.f.ans.value + num;  
+           }
+           function equal()  
+           {  
+              var exp = document.f.ans.value;  
+              if(exp)  
+                {  
+                  document.f.ans.value = eval(exp);
+                }  
+            }  
+            function backspace()  
+            {  
+               var exp = document.f.ans.value;  
+               document.f.ans.value = exp.substring(0, exp.length - 1);
+            }  
+      </script>
 </head>
 <body>
-<div id="calculator">
-  <div id="display"></div>
-  <div class="row">
-    <div class="button">(</div>
-    <div class="button">CE</div>
-    <div class="button">)</div>
-    <div class="button">C</div>
-  </div>
-  <div class="row">
-    <div class="button">1</div>
-    <div class="button">2</div>
-    <div class="button">3</div>
-    <div class="button">+</div>
-  </div>
-  <div class="row">
-    <div class="button">4</div>
-    <div class="button">5</div>
-    <div class="button">6</div>
-    <div class="button">-</div>
-  </div>
-  <div class="row">
-    <div class="button">7</div>
-    <div class="button">8</div>
-    <div class="button">9</div>
-    <div class="button">*</div>
-  </div>
-  <div class="row">
-    <div class="button">.</div>
-    <div class="button">0</div>
-    <div class="button">/</div>
-    <div class="button">=</div>
-  </div>
-</div>
-<script>
-  const display = document.getElementById("display");
-  const buttons = document.querySelectorAll(".button");
-  let expression = "";
-
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      if (button.textContent === "=") {
-        try {
-          const result = eval(expression);
-          display.textContent = result;
-          expression = result.toString();
-        } catch (error) {
-          display.textContent = "Error";
-        }
-      } else if (button.textContent === "CE") {
-        expression = expression.slice(0, -1);
-        display.textContent = expression;
-      } else if (button.textContent === "C") {
-        expression = "";
-        display.textContent = "";
-      } else {
-        expression += button.textContent;
-        display.textContent = expression;
-      }
-    });
-  });
-</script>
+      <center>
+  <table bgcolor="grey">
+      <tr>
+            <form name="f">
+            <td colspan="4"><input class="t" type="text" name="ans"></td></form>
+      </tr>
+      <tr>
+            <td><input class="c" type="button" value="(" onclick = "insert('(')" ></td>
+            <td><input class="c" type="button" value="CE" onclick = "f.ans.value = ' ' " ></td>
+            <td><input class="c" type="button" value=")" onclick = "insert(')')" ></td>
+            <td><input class="c" type="button" value="C" onclick = "backspace()"></td>
+      </tr>
+      <tr>
+            <td><input class="c" type="button" value="1" onclick = "insert('1')" ></td>
+            <td><input class="c" type="button" value="2" onclick = "insert('2')" ></td>
+            <td><input class="c" type="button" value="3" onclick = "insert('3')" ></td>
+            <td><input class="c" type="button" value="+" onclick = "insert('+')" ></td>
+      </tr>
+      <tr>
+            <td><input class="c" type="button" value="4" onclick = "insert('4')" ></td>
+            <td><input class="c" type="button" value="5" onclick = "insert('5')" ></td>
+            <td><input class="c" type="button" value="6" onclick = "insert('6')" ></td>
+            <td><input class="c" type="button" value="-" onclick = "insert('-')" ></td>
+      </tr>
+      <tr>
+            <td><input class="c" type="button" value="7" onclick="insert('7')"></td>
+            <td><input class="c" type="button" value="8" onclick = "insert('8')" ></td>
+            <td><input class="c" type="button" value="9" onclick = "insert('9')" ></td>
+            <td><input class="c" type="button" value="*" onclick = "insert('*')" ></td>
+      </tr>
+      <tr>
+            <td><input class="c" type="button" value="." onclick = "insert('.')" ></td>
+            <td><input class="c" type="button" value="0" onclick = "insert('0')" ></td>
+            <td><input class="c" type="button" value="=" onclick = "equal()"></td>
+            <td><input class="c" type="button" value="/" onclick = "insert('/')" ></td>
+      </tr>
+  </table>
+  </center>
 </body>
 </html>
