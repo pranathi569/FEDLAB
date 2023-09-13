@@ -1,15 +1,12 @@
-import logo from './logo.svg';
-import Counter from './Counter';
-import ChangeTextColor from './ChangeTextColor'
-import './App.css';
+import "./styles.css";
+import ArrayOfObjs from "./ArrayOfObjs"
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      {/*<Counter />*/}
-      <ChangeTextColor/>
+      
+      <ArrayOfObjs/>
     </div>
   );
 }
 
-export default App;
