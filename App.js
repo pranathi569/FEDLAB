@@ -1,12 +1,13 @@
-import "./styles.css";
-import ArrayOfObjs from "./ArrayOfObjs"
+import logo from './logo.svg';
+import './App.css';
+import Counter from './Counter'
 
-export default function App() {
+function App() {
   return (
     <div className="App">
-      
-      <ArrayOfObjs/>
+      <Counter/>
     </div>
   );
 }
 
+export default App;
