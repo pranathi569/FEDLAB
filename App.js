@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import Counter from './Counter';
-import ChangeTextColor from './ChangeTextColor'
-import ArrayOfObjs from './ArrayOfObjs';
-import Digital from './Digital';
-import DigitalClock from './DigitalClock';
-import ViewItems from './ViewItems';
-import './App.css';
 
-function App() {
+import React from 'react'
+import Counter1 from './Counter1';
+import Parent1 from './Parent1';
+
+import BlogContextDemo from './BlogContextDemo';
+const blogInfo={
+  React:{
+    post:"Learn useContext Hooks",
+    author:"Varun k"
+  },
+  Nodejs:{
+    post:"Node commands",
+    author:"Veena M"
+  }
+};
+export const BlogContext=React.createContext(blogInfo);
+
+export default function App() {
   return (
     <div className="App">
-      {/*<Counter />*/}
-      {/*<ChangeTextColor/>*/}
-      <Digital/>
-      <DigitalClock/>
-      <ViewItems/>
-      
+      {/*<div>
+        <h1>useContext() Demo</h1>
+        <BlogContext.Provider value={blogInfo}>
+          <BlogContextDemo/>
+        </BlogContext.Provider>
+  </div>*/}
+  <Parent1/>
+ 
+ 
+     
+     
     </div>
   );
 }
 
-export default App;
